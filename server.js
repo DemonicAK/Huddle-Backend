@@ -17,7 +17,7 @@ const server = require('http').createServer(app);
 const PORT = 5001;
 const io = require('socket.io')(server, {
   cors: {
-    origin: process.env.FRONTEND_URL,
+    origin: "*",
     methods: ['GET', 'POST']
   }
 })
