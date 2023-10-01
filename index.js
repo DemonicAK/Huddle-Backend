@@ -14,14 +14,16 @@ app.use('/users', userRoutes)
 require('./connection')
 
 const server = require('http').createServer(app);
-const PORT = 5001;
-const io = require('socket.io')(server, {
-  origins: '*',
+const PORT = process.env.PORT || 5000;
+const io = require("socket.io")(server, {
+  origins: "*",
   cors: {
-    origin: '*',
-    methods: ['GET', 'POST']
-  }
-})
+    origin: "*",
+    methods: ["GET", "POST"],
+    transports: ["websocket", "polling"],
+  },
+  allowEIO3: true,
+});
 
 
 async function getLastMessagesFromRoom(room){
