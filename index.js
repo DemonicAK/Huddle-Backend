@@ -4,7 +4,7 @@ const userRoutes = require('./routes/userRoutes')
 const User = require('./models/User');
 const Message = require('./models/Message')
 const rooms = ['general', 'tech', 'finance', 'crypto'];
-const cors = require('cors');
+
 require("dotenv").config();
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
