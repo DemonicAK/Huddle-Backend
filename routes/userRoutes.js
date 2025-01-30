@@ -2,11 +2,12 @@ const router = require('express').Router();
 const User = require('../models/User');
 
 // creating user
-router.post('/', async(req, res)=> {
+router.post('/create', async(req, res)=> {
   try {
     const {name, email, password, picture} = req.body;
     console.log(req.body);
     const user = await User.create({name, email, password, picture});
+    console.log(user);
     res.status(201).json(user);
   } catch (e) {
     let msg;
