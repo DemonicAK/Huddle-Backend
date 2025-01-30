@@ -8,6 +8,10 @@
   ],
   "routes": [
     {
+      "src": "/socket.io/(.*)",
+      "dest": "index.js"
+    },
+    {
       "src": "/(.*)",
       "dest": "index.js"
     }
@@ -23,7 +27,7 @@
         },
         {
           "key": "Access-Control-Allow-Methods",
-          "value": "GET,DELETE,PATCH,POST,PUT"
+          "value": "GET,DELETE,PATCH,POST,PUT,OPTIONS"
         },
         {
           "key": "Access-Control-Allow-Headers",

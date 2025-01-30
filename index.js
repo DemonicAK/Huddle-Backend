@@ -8,17 +8,16 @@ const cors = require('cors');
 require("dotenv").config();
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-app.use(cors());
 
+const cors = require("cors");
 app.use(
   cors({
-    origin: "https://whispersync.vercel.app", // your frontend URL
+    origin: "https://whispersync.vercel.app",
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
   })
 );
-
 
 
 app.use('/users', userRoutes)
@@ -27,13 +26,13 @@ require('./connection')
 const server = require('http').createServer(app);
 const PORT = process.env.PORT || 5000;
 const io = require("socket.io")(server, {
-  origins: "*",
   cors: {
-    origin: "*",
+    origin: "https://whispersync.vercel.app",
     methods: ["GET", "POST"],
     credentials: true,
-    // transports: ["websocket"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   },
+  transports: ["websocket", "polling"],
   allowEIO3: true,
 });
 
