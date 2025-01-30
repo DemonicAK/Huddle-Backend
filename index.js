@@ -12,7 +12,7 @@ app.use(express.json());
 const cors = require("cors");
 app.use(
   cors({
-    origin: "https://whispersync.vercel.app",
+    origin: "https://huddle-backend-nm6l.onrender.com",
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
