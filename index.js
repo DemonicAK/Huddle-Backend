@@ -27,7 +27,7 @@ const server = require('http').createServer(app);
 const PORT = process.env.PORT || 5000;
 const io = require("socket.io")(server, {
   cors: {
-    origin: "https://whispersync.vercel.app",
+    origin: "https://huddle-client.vercel.app",
     methods: ["GET", "POST"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
